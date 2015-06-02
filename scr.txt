@@ -11,14 +11,3 @@ read b
 mul a b
 print a
 
-set tekst1 witaj
-set tekst2 ,_pythonie!
-add tekst1 tekst2
-print tekst1
-
-set tekst na
-set razy 20
-set batman Batman!
-mul tekst razy
-add tekst batman
-print tekst
