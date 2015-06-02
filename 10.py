@@ -10,7 +10,7 @@ while(line!=""):
     if str(temp[0])=='set':
         slownik[temp[1]]=temp[2]
     elif str(temp[0])=='add':
-        slownik[temp[1]]=slownik[temp[1]]+slownik[temp[2]]
+        slownik[temp[1]]=int(slownik[temp[1]])+int(slownik[temp[2]])
     line=f.readline()
 print(slownik)
 #2
