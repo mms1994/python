@@ -55,7 +55,12 @@ class jacob(SLESolver):
             for j in range(0, int(self.line)):
                 print("{0:10.3e}".format(self.A[i][j]) , end=' ')
             print( ' ] ', end=' ')
-            print('[ ' + '{0:10.3e}'.format(self.x[i]) + ' ] ' + ' = ' + ' [ ' + '{0:10.3e}'.format(self.b[i]) + ' ]')
+            print('[ ' + '{0:10.3e}'.format(self.x[i]) + ' ] ', end=' ')
+            if(i==int(self.line)-1):
+                print(' = ', end=' ')
+            else:
+                print('   ', end=' ')
+            print(' [ ' + '{0:10.3e}'.format(self.b[i]) + ' ]')
         f2.close
         f3.close
         return ret
