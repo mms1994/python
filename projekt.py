@@ -1,12 +1,10 @@
-from pprint import pprint
-from numpy import array, zeros, diag, diagflat, dot
+from numpy import zeros, diag, diagflat, dot
 
 class SLESolver:
     def solveGenerator (self , inputFile , N, tol ):
         pass
     def solve (self , inputFile , outputFile , intermediateResultsFile , N, tol ):
         pass
-
 class jacob(SLESolver):
     x = []
     A = []
@@ -35,7 +33,6 @@ class jacob(SLESolver):
             self.x = (self.b - dot(R,self.x)) / D
             yield self.x
         f.close
-
     def solve (self , inputFile , outputFile , intermediateResultsFile , N , tol ):
         gen = self.solveGenerator(inputFile, N, tol)
         f3 = open(intermediateResultsFile,  'w')
@@ -62,6 +59,5 @@ class jacob(SLESolver):
         f2.close
         f3.close
         return ret
-
 SLS=jacob()
 sol = SLS.solve("input.txt", "output.txt", "inter.txt", 25, 0.001)
