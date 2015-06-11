@@ -58,13 +58,10 @@ class jacob(SLESolver):
             for j in range(0, int(self.line)):
                 print("{0:10.3e}".format(self.A[i][j]) , end=' ')
             print( ' ] ', end=' ')
-            print("[ " + "{0:10.3e}".format(self.x[i]) + " ]" + " = " + "[ " + "{0:10.3e}".format(self.b[i]) + " ]")
+            print('[ ' + '{0:10.3e}'.format(self.x[i]) + ' ] ' + ' = ' + ' [ ' + '{0:10.3e}'.format(self.b[i]) + ' ]')
         f2.close
         f3.close
         return ret
 
 SLS=jacob()
 sol = SLS.solve("input.txt", "output.txt", "inter.txt", 25, 0.001)
-
-print ("x:")
-print(sol)
