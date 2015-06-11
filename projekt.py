@@ -3,10 +3,22 @@ from numpy import array, zeros, diag, diagflat, dot
 
 class SLESolver :
     def solveGenerator (self , inputFile , N , tol ):
-        A = array([[10.0,0.0,-1.0],[1.0,5.0,0.0],[2.0,0.0,10.0]])
-        b = array([1.0,2.0,3.0])
-        x = array([1.0,1.0,1.0])
-        x = zeros(len(A[0]))
+        f = open(inputFile, "r")
+        line=f.readline()
+        size=(int(line), int(line))
+        A = zeros(size)
+        for i in range(int(line)):
+            next=f.readline()
+            next=next.replace("\n", "")
+            temp=next.split(' ')
+            for j in range(int(line)):
+                A[i][j]=temp[j]
+        b = zeros(int(line))
+        for i in range(int(line)):
+            next=f.readline()
+            next=next.replace("\n", "")
+            b[i]=next
+        x = zeros(int(line))
         D = diag(A)
         R = A - diagflat(D)
         for i in range(N):
@@ -14,17 +26,26 @@ class SLESolver :
             yield x
 
     def solve (self , inputFile , outputFile , intermediateResultsFile , N , tol ):
-        pass
+        gen = self.solveGenerator(inputFile, N, tol)
+        f3 = open(intermediateResultsFile,  'w')
+        for i in range(N):
+            ret=next(gen)
+            f3.write(str(i))
+            f3.write(' ')
+            for j in range(len(ret)):
+                f3.write(str(ret[j]))
+                f3.write(' ')
+            f3.write('\n')
+        f2 = open(outputFile, 'w')
+        f2.write(str(len(ret)))
+        f2.write('\n')
+        for i in range(len(ret)):
+            f2.write(str(ret[i]))
+            f2.write(' ')
+        return ret
 
-
-def jacobi(N):
-    SLES=SLESolver()
-    gen = SLES.solveGenerator("input.txt", N, 0.001)
-    for i in range(N):
-        ret=next(gen)
-        print(ret)
-    return ret
-sol = jacobi(25)
+SLS=SLESolver()
+sol = SLS.solve("input.txt", "output.txt", "inter.txt", 25, 0.001)
 
 print ("x:")
 print(sol)
