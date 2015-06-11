@@ -1,29 +1,40 @@
 from pprint import pprint
 from numpy import array, zeros, diag, diagflat, dot
 
-class SLESolver :
+class SLESolver:
+    def solveGenerator (self , inputFile , N, tol ):
+        pass
+    def solve (self , inputFile , outputFile , intermediateResultsFile , N, tol ):
+        pass
+
+class jacob(SLESolver):
+    x = []
+    A = []
+    b = []
+    line = 0
     def solveGenerator (self , inputFile , N , tol ):
         f = open(inputFile, "r")
-        line=f.readline()
-        size=(int(line), int(line))
-        A = zeros(size)
-        for i in range(int(line)):
+        self.line=f.readline()
+        size=(int(self.line), int(self.line))
+        self.A = zeros(size)
+        for i in range(int(self.line)):
             next=f.readline()
             next=next.replace("\n", "")
             temp=next.split(' ')
-            for j in range(int(line)):
-                A[i][j]=temp[j]
-        b = zeros(int(line))
-        for i in range(int(line)):
+            for j in range(int(self.line)):
+                self.A[i][j]=temp[j]
+        self.b = zeros(int(self.line))
+        for i in range(int(self.line)):
             next=f.readline()
             next=next.replace("\n", "")
-            b[i]=next
-        x = zeros(int(line))
-        D = diag(A)
-        R = A - diagflat(D)
+            self.b[i]=next
+        self.x = zeros(int(self.line))
+        D = diag(self.A)
+        R = self.A - diagflat(D)
         for i in range(N):
-            x = (b - dot(R,x)) / D
-            yield x
+            self.x = (self.b - dot(R,self.x)) / D
+            yield self.x
+        f.close
 
     def solve (self , inputFile , outputFile , intermediateResultsFile , N , tol ):
         gen = self.solveGenerator(inputFile, N, tol)
@@ -42,9 +53,17 @@ class SLESolver :
         for i in range(len(ret)):
             f2.write(str(ret[i]))
             f2.write(' ')
+        for i in range(0, int(self.line)):
+            print( ' [ ', end=' ')
+            for j in range(0, int(self.line)):
+                print("{0:10.3e}".format(self.A[i][j]) , end=' ')
+            print( ' ] ', end=' ')
+            print("[ " + "{0:10.3e}".format(self.x[i]) + " ]" + " = " + "[ " + "{0:10.3e}".format(self.b[i]) + " ]")
+        f2.close
+        f3.close
         return ret
 
-SLS=SLESolver()
+SLS=jacob()
 sol = SLS.solve("input.txt", "output.txt", "inter.txt", 25, 0.001)
 
 print ("x:")
