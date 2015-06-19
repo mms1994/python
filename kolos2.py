@@ -17,3 +17,24 @@ def funkcja():
 
 #2
 #Klasa glowna owoc z metoda smacznosc, konstruktorem oraz atrybutami masa i nazwa.metoda smacznosc ma wypisac 0. Klasa arbuz dziedziczy po owoc. Ma konstruktor oraz zmienna prywatna liczbapestek o wartości 100. Nadpisuje metodę smacznosc i daje jej wartość 100. Klasa jabłko dziedziczy po owoc, zmienna liczbapestek ma wartość 10. Nadpisuje metodę smacznosc i daje jej wartość 10+liczbapestek. Cos ma to wszystko jeszcze na końcu robic.
+class owoc:
+    masa=0
+    nazwa=''
+    def __init__(self):
+        self.masa=100
+        self.nazwa='puste'
+    def smacznosc(self):
+        print("0")
+
+class arbuz(owoc):
+    __liczbapestek=100
+    def __init__(self):
+        #nie wiem co tu wpisać, nie widać zbytnio z treści zadania
+        pass
+    def smacznosc(self):
+        print("100")
+
+class jablko(owoc):
+    liczbapestek=10
+    def smacznosc(self):
+        print(self.liczbapestek+10)
