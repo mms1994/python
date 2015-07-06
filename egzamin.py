@@ -93,6 +93,11 @@ stri="oKeJ1OkEj2"
 stri2=zmien(stri)
 print(stri2)
 
+#7
+print("")
+print("zad7")
+print("nie wiem jak zrobić")
+
 #8
 print("")
 print("zad8")
