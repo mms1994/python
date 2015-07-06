@@ -55,19 +55,18 @@ def tajemniczy_kod(b1, b2, i, s):
     if False:
         print("warunek 0")
     elif b1:
-        print("warunek 0")
-    if (b1 or b2) and i==4:
         print("warunek 1")
-    if i>10:
-        print("warunek 2")
-    elif not b1:
-        print("warunek 3")
-    elif b1 and s=='':
-        print("warunek 4")
-    elif s==str(i):
-        print("warunek 5")
-    else:
-        print("warunek 6")
+    if (b1 or b2) and i==4:
+        if i>10:
+            print("warunek 2")
+        elif not b1:
+            print("warunek 3")
+        elif b1 and s=='':
+            print("warunek 4")
+        elif s==str(i):
+            print("warunek 5")
+        else:
+            print("warunek 6")
 #testujcie sobie :)
 
 #5
