@@ -27,6 +27,26 @@ else:
 #3
 print("")
 print("zad3")
+def zrob_cos(a,b):
+    a.insert(0, 'd')
+    b=['d']+b
+
+a=['a', 'b', 'c']
+a1=a
+a2=a[:]
+
+b=['a', 'b', 'c']
+b1=b
+b2=b[:]
+
+zrob_cos(a,b)
+
+print(a)
+print(a1)
+print(a2)
+print(b)
+print(b1)
+print(b2)
 
 #4
 print("")
@@ -35,6 +55,7 @@ print("zad4")
 #5
 print("")
 print("zad5")
+
 #6
 print("")
 print("zad6")
