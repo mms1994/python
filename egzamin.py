@@ -10,8 +10,33 @@ print("chuj wie, dużo przepisywania")
 litery=['a', 'b', 'c', 'd']
 litery[1]=321
 print(litery)
+#2
+print("")
+print("zad2")
+def potrojenie(x):
+    print('potrajanie', x)
+    return x*3
+def odejmij(y,z):
+    print('odejmowanie', y, z)
+    return y-z
+if  odejmij(20, potrojenie(10)) > 0 and odejmij(-25, potrojenie(5)) >0:
+    print('jejku!')
+else:
+    print('ojej!', odejmij(potrojenie(3), 0))
 
+#3
+print("")
+print("zad3")
+
+#4
+print("")
+print("zad4")
+
+#5
+print("")
+print("zad5")
 #6
+print("")
 print("zad6")
 def zmien(str):
     str2=""
@@ -29,6 +54,7 @@ stri2=zmien(stri)
 print(stri2)
 
 #8
+print("")
 print("zad8")
 def dni(miesiac, rok):
     if (miesiac>0 and miesiac<13 and rok>0):
@@ -52,6 +78,7 @@ def dni(miesiac, rok):
 print(dni(2,1900))
 
 #9
+print("")
 print("zad9")
 class Okrag:
     promien=0
