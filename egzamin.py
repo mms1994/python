@@ -35,3 +35,20 @@ def dni(miesiac, rok):
     else:
         return 0; #error
 print(dni(2,1900))
+
+#9
+class Okrag:
+    promien=0
+    def __init__(self, pr):
+        self.promien=pr
+    def pole(self):
+        return self.promien*self.promien*3.141593
+    def drukuj(self):
+        print("Okrąg".ljust(10), end="|")
+        print("promień".ljust(10), end="|")
+        print("pole")
+        print("".ljust(10), end="|")
+        print(str(self.promien).ljust(10), end="|")
+        print(str(self.pole()).ljust(10))
+a=Okrag(3)
+a.drukuj()
