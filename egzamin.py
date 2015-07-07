@@ -72,7 +72,7 @@ def tajemniczy_kod(b1, b2, i, s):
 #5
 print("")
 print("zad5")
-print("a: c")
+print("a: b")
 print("b: b")
 
 #6
