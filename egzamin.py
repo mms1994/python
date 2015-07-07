@@ -31,9 +31,9 @@ def zrob_cos(a,b):
     a.insert(0, 'd')
     b=['d']+b
 
-a=['a', 'b', 'c']
-a1=a
-a2=a[:]
+a = ['a', 'b', 'c']
+a1 = a
+a2 = a[:]
 
 b=['a', 'b', 'c']
 b1=b
