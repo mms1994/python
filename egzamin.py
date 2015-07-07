@@ -96,7 +96,16 @@ print(stri2)
 #7
 print("")
 print("zad7")
-print("nie wiem jak zrobić")
+def length_dict(word_list):
+    dict={}
+    for i in range(len(word_list)):
+        dict[len(word_list[i])]=word_list[i]
+    return dict
+
+word="ok", "aba"
+
+dicte=length_dict(word)
+print(dicte)
 
 #8
 print("")
